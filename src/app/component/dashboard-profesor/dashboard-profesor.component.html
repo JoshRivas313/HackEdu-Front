@@ -1,1 +1,32 @@
-<p>dashboard-profesor works!</p>
+<div class="dashboard-profesor-container">
+  <h2>Panel del Profesor</h2>
+  <nav class="dashboard-tabs">
+    <button (click)="activeTab = 'crear'">Crear Evaluación</button>
+    <button (click)="activeTab = 'ver'">Ver Evaluaciones</button>
+    <button (click)="activeTab = 'editar'">Editar Evaluaciones</button>
+    <button (click)="activeTab = 'resultados'">Resultados Generales</button>
+  </nav>
+
+  <div class="dashboard-content">
+    <div *ngIf="activeTab === 'crear'">
+      <h3>Crear Evaluación</h3>
+      <!-- Formulario para crear evaluación -->
+      <!-- ... -->
+    </div>
+    <div *ngIf="activeTab === 'ver'">
+      <h3>Evaluaciones Creadas</h3>
+      <!-- Lista de evaluaciones -->
+      <!-- ... -->
+    </div>
+    <div *ngIf="activeTab === 'editar'">
+      <h3>Editar Evaluaciones</h3>
+      <!-- Selección y edición de evaluación -->
+      <!-- ... -->
+    </div>
+    <div *ngIf="activeTab === 'resultados'">
+      <h3>Evaluación General de Resultados</h3>
+      <!-- Vista de resultados generales -->
+      <!-- ... -->
+    </div>
+  </div>
+</div>
