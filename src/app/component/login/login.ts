@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './login.html',
   styleUrls: ['./login.css']
 })
@@ -12,12 +15,12 @@ export class LoginComponent {
   errorMessage: string = '';
 
   onSubmit() {
-  if (this.email === '1234' && this.password === '5678') {
-    this.errorMessage = '';
-    alert('¡Bienvenido a AlToque!');
-    // lógica de navegación
-  } else {
-    this.errorMessage = 'Usuario o contraseña incorrectos';
+    if (this.email === '1234' && this.password === '5678') {
+      this.errorMessage = '';
+      alert('¡Bienvenido a AlToque!');
+      // lógica de navegación
+    } else {
+      this.errorMessage = 'Usuario o contraseña incorrectos';
+    }
   }
-}
 }
