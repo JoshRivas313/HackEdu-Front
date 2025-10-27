@@ -12,7 +12,7 @@
   </div>
 
   <!-- Archivos recibidos -->
-  <div class="bg-white p-6 rounded-2xl shadow flex items-center gap-2 mb-6">
+  <div class="bg-white p-6 flex items-center gap-2 mb-6">
     <div>
       <span class="material-icons text-[#0C2340]">folder</span>
     </div>
@@ -24,22 +24,37 @@
   </div>
 
   <!-- Editor de rúbricas -->
+    <!-- Editor de rúbricas -->
   <section class="bg-white p-6 rounded-2xl shadow mb-8">
-    <h2 class="text-lg font-semibold text-[#0C2340] mb-4">Editor de rúbricas</h2>
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-semibold text-[#0C2340]">Editor de rúbricas</h2>
+      <p class="text-xs text-gray-500">Guarda la rúbrica para poder analizar las evidencias.</p>
+    </div>
 
+    <!-- Subida de PDF -->
+    <div
+      class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#4EC3E0] transition cursor-pointer">
+      <span class="material-icons text-4xl text-gray-400 mb-2">upload_file</span>
+      <p class="text-gray-600 text-sm">
+        Arrastra y suelta el archivo aquí o haz clic para subir
+      </p>
+      <p class="text-xs text-gray-400 mt-1">PDF (máx. 20MB)</p>
+    </div>
+
+    <!-- Campo de rúbrica -->
     <div class="mb-4">
       <label class="block text-sm font-medium text-gray-700 mb-2">Rúbrica 1</label>
       <textarea
-        placeholder="Condiciones..."
+        placeholder="Ej. El documento presenta una introducción clara que capta la atención del lector..."
         rows="2"
         class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4EC3E0] focus:outline-none"
       ></textarea>
     </div>
 
     <div class="flex gap-4">
-      <button
-        class="px-4 py-2 bg-white   rounded-lg text-sm font-medium hover:bg-[#3AB1CD] transition">
-        Agregar rúbrica
+       <button
+        class="px-4 py-2 bg-gray-100 text-black rounded-lg text-sm font-medium transition hover:bg-[#0C2340] hover:text-white">
+        + Agregar rúbrica
       </button>
       <button
         class="px-4 py-2 bg-[#0C2340] text-white rounded-lg text-sm font-medium hover:bg-[#1a3a66] transition">
@@ -100,9 +115,9 @@
   <!-- Panel de recomendaciones -->
   <section class="bg-white p-6 rounded-2xl shadow mb-8">
       <div>
-      <h2 class="text-lg font-semibold text-[#0C2340] mb-4 ">Recomendaciones por grupo</h2>
+      <h2 class="text-lg font-semibold text-[#0C2340] mb-4">Recomendaciones por grupo</h2>
 
-      <div class="rounded-2xl bg-gray-100 shadow p-4 " >
+      <div class="rounded-2xl bg-gray-100 shadow p-3 " >
         <p class="font-semibold text-[#0C2340]">
           Grupo 2 <span class="text-gray-500 text-sm">(No cumple):</span>
         </p>
