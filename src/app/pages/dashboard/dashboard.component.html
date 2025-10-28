@@ -1,19 +1,221 @@
-<div class="dashboard-profesor-container">
-  <h2>Panel del Profesor</h2>
-  
-  <div class="dashboard-actions">
-    <button (click)="crearEvaluacion()">Crear Nueva Evaluación</button>
-  </div>
 
-  <h3>Evaluaciones Creadas</h3>
-  <ul class="evaluaciones-list">
-    <li *ngFor="let evaluacion of evaluaciones">
-      <span>{{ evaluacion.nombre }}</span>
-      <div class="evaluacion-actions">
-        <button (click)="editarEvaluacion(evaluacion)">Editar</button>
-        <button (click)="verResultados(evaluacion)">Ver Resultados</button>
-        <button (click)="eliminarEvaluacion(evaluacion)">Eliminar</button>
+<navBar></navBar>
+
+<div class="min-h-screen bg-gray-100 flex flex-col">
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-1 p-8 space-y-8">
+    <!-- HEADER -->
+
+    <div>
+       <h1 class="font-bold text-gray-900 mb-2">
+       Informe diario del educador
+      </h1>
+    </div>
+
+
+    <section class="">
+  <div
+    class="bg-[#0C2340] text-white rounded-xl p-6 shadow-md flex flex-col sm:flex-row sm:items-start sm:justify-between  "
+  >
+    <!-- Bloque izquierdo: título e info -->
+    <div class="flex flex-col">
+      <div class="flex items-center mb-2">
+        <h3 class="font-semibold text-base">Enfoque de hoy</h3>
       </div>
-    </li>
-  </ul>
+
+      <div class="gap-4">
+         <p class="text-sm leading-relaxed">
+        <span class="font-bold">Urgente:</span> Revisión completa de la
+        <span class="italic">Evaluación de Competencias Clave”</span> al final del día.<br/> <br>
+        <span class="font-bold">Fecha límite:</span>
+        <span class="italic">El “Análisis Trimestral de Desempeño” </span> vence mañana.
+      </p>
+      </div>
+
+    <div class="flex flex-wrap gap-3 sm:justify-end mt-2">
+      <span
+        class="bg-white text-[#0C2340] text-sm px-3 py-1 rounded-lg font-medium shadow-sm"
+        >1 Revisión pendiente</span>
+      <span class="bg-blue-100 text-[#0C2340] text-sm px-3 py-1 rounded-lg font-medium shadow-sm"
+        >2 Próximas fechas límite </span
+      >
+    </div>
+
+    </div>
+
+
+  </div>
+   </section>
+
+
+    <!-- STATS Y ACTIVIDAD -->
+    <section class="grid md:grid-cols-2 gap-6">
+
+      <!-- QUICK STATS -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+  <h4 class="text-sm font-semibold text-gray-800 mb-5 flex items-center gap-2">
+    <i class="ri-bar-chart-box-line text-[#F47A20]"></i>
+    Quick Stats
+  </h4>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+    <!-- Total Evaluations -->
+    <div class="bg-[#FFF7F0] rounded-xl py-4 px-2 flex flex-col items-center justify-center">
+      <i class="ri-list-check text-[#F47A20] text-2xl mb-1"></i>
+      <h4 class="text-3xl font-bold text-[#F47A20]">
+        {{ stats().totalEvaluations }}
+      </h4>
+      <p class="text-sm text-gray-700 font-medium mt-1">Total Evaluations</p>
+    </div>
+
+    <!-- Avg. Students per Eval -->
+    <div class="bg-[#FFF7F0] rounded-xl py-4 px-2 flex flex-col items-center justify-center">
+      <i class="ri-user-3-line text-[#F47A20] text-2xl mb-1"></i>
+      <h4 class="text-3xl font-bold text-[#F47A20]">
+        {{ stats().avgStudents }}
+      </h4>
+      <p class="text-sm text-gray-700 font-medium mt-1">
+        Avg. Students per Eval
+      </p>
+    </div>
+
+    <!-- Reports Generated This Month -->
+    <div class="bg-[#FFF7F0] rounded-xl py-4 px-2 flex flex-col items-center justify-center">
+      <i class="ri-file-list-3-line text-[#F47A20] text-2xl mb-1"></i>
+      <h4 class="text-3xl font-bold text-[#F47A20]">
+        {{ stats().reportsThisMonth }}
+      </h4>
+      <p class="text-sm text-gray-700 font-medium mt-1">
+        Reports Generated This Month
+      </p>
+    </div>
+  </div>
 </div>
+
+
+      <!-- RECENT ACTIVITY -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <h4
+          class="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2"
+        >
+          <i class="ri-time-line text-[#F47A20]"></i>
+          Recent Activity
+        </h4>
+
+        <ul class="space-y-4 text-sm">
+          @for (activity of recentActivities(); track activity.target) {
+            <li>
+              <p>
+                <span class="font-medium text-gray-900">{{
+                  activity.title
+                }}</span>
+                <span class="text-[#F47A20] font-semibold">{{
+                  activity.target
+                }}</span>
+              </p>
+              <p class="text-gray-500 text-xs">{{ activity.time }}</p>
+              <p class="text-gray-400 text-xs">{{ activity.details }}</p>
+            </li>
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- MY EVALUATIONS -->
+    <section class="bg-white rounded-2xl p-6 shadow-sm">
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4"
+      >
+        <h4 class="text-sm font-semibold text-[#0C2340] mb-2 sm:mb-0">
+          My Evaluations
+        </h4>
+        <button
+          class="bg-[#0C2340] text-white text-sm px-4 py-2 rounded-lg hover:bg-[#07162b] transition"
+        >
+          + Add Course
+        </button>
+      </div>
+
+      <!-- FILTERS -->
+      <div
+        class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 text-sm text-gray-600 gap-2"
+      >
+        <div class="flex items-center gap-2">
+          <label for="status">Status:</label>
+          <select
+            id="status"
+            class="border border-gray-300 rounded-lg px-2 py-1 text-sm focus:ring-[#F47A20]"
+          >
+            <option>All</option>
+            <option>Completed</option>
+            <option>Pending</option>
+            <option>Overdue</option>
+          </select>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <label for="sort">Sort By:</label>
+          <select
+            id="sort"
+            class="border border-gray-300 rounded-lg px-2 py-1 text-sm focus:ring-[#F47A20]"
+          >
+            <option>Last Modified</option>
+            <option>Due Date</option>
+          </select>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="Search evaluations..."
+            class="border border-gray-300 rounded-lg px-3 py-1 text-sm w-full sm:w-64 focus:ring-[#F47A20]"
+          />
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm text-gray-700">
+          <thead class="text-left border-b text-gray-500">
+            <tr>
+              <th class="py-2">Evaluation Name</th>
+              <th class="py-2">Files</th>
+              <th class="py-2">Status</th>
+              <th class="py-2">Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (eval of evaluations(); track eval.name) {
+              <tr
+                class="border-b last:border-none hover:bg-gray-50 transition"
+              >
+                <td class="py-3 font-medium text-[#F47A20]">
+                  {{ eval.name }}
+                </td>
+                <td class="py-3">{{ eval.files }}</td>
+                <td class="py-3">
+                  <span
+                    class="px-2 py-1 text-xs rounded-lg font-medium"
+                  >
+                    {{ eval.status }}
+                  </span>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="4" class="text-center text-gray-400 py-4">
+                  No evaluations found.
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+  </main>
+
+</div>
+>>>>>>> a98a256 (Avance)

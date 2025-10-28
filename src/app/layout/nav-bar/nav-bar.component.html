@@ -1,12 +1,33 @@
- <nav class="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
+<nav class="bg-white shadow-black px-6 py-4">
+  <div class="flex items-center justify-between">
+    <!-- LOGO -->
     <div class="flex items-center">
-      <img src="assets/LogoCuadrado.png" alt="Logo" class="w-44" />
+      <img src="assets/LogoCuadrado.png" alt="Logo" class="w-40 md:w-44" />
     </div>
 
-    <ul class="flex items-center gap-6 text-sm text-gray-600">
-      <li class="font-medium text-[#0C2340]">Dashboard</li>
-      <li class="hover:text-[#F47A20] cursor-pointer">Evaluations</li>
-      <li class="hover:text-[#F47A20] cursor-pointer">Reports</li>
-      <li class="hover:text-[#F47A20] cursor-pointer">Settings</li>
+    <!-- BOTÓN MENU (solo móvil) -->
+    <button
+      class="md:hidden text-[#0C2340] text-2xl focus:outline-none transition"
+      (click)="toggleMenu()"
+    >
+      @if (!menuOpen) {
+        <i class="ri-menu-line"></i>
+      } @else {
+        <i class="ri-close-line"></i>
+      }
+    </button>
+
+    <!-- LINKS (Desktop) -->
+    <ul class="hidden md:flex items-center gap-6 text-sm text-gray-600">
+      <li
+        class="font-medium text-[#0C2340] cursor-pointer border-b-2 border-[#0C2340] pb-1"
+      >
+        Dashboard
+      </li>
+      <li class="hover:text-[#F47A20] cursor-pointer transition">Evaluations</li>
+      <li class="hover:text-[#F47A20] cursor-pointer transition">Reports</li>
     </ul>
-  </nav>
+  </div>
+
+
+</nav>

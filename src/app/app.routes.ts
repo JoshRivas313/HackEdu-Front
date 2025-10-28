@@ -8,6 +8,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ResultEvaluationComponent } from './pages/result-evaluation/result-evaluation.component';  
 
 export const routes: Routes = [
+<<<<<<< HEAD
     { path: '', component: LoginComponent, pathMatch: 'full' },
     { path: "dashboard", component: DashboardComponent, title: "Panel de Control" },
     { path: "details", component: DetailsComponent, title: "Detalles" },
@@ -15,6 +16,13 @@ export const routes: Routes = [
     { path: "***", component: Error404Component },
     { path: 'edit-evaluation/:id', component: CreateEvaluationComponent, title: 'Editar Evaluación' },
     { path: 'resultados-evaluacion/:id', component: ResultEvaluationComponent, title: 'Resultados de la Evaluación' }
+=======
+  { path: '', component: LoginComponent , pathMatch:'full'  },
+  {path:"dashboard", component:DashboardComponent, title:"Panel de Control"},
+  { path: "details", component:DetailsComponent, title:"Detalles"},
+  {path: "createEvaluation" , component:CreateEvaluationComponent, title:"Formulario de Evaluaciones"},
+  { path: "**",component:Error404Component}
+>>>>>>> a98a256 (Avance)
 ];
 
 @NgModule({

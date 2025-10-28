@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
+menuOpen = false;
+
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
 
 }

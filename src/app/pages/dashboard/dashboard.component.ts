@@ -1,38 +1,87 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NavBarComponent } from '../../layout/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavBarComponent],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  evaluaciones = [
-    { id: 1, nombre: 'Evaluación 1' },
-    { id: 2, nombre: 'Evaluación 2' }
-    // Puedes cargar dinámicamente desde tu backend
-  ];
+  stats = signal({
+    totalEvaluations: 32,
+    avgStudents: 45,
+    reportsThisMonth: 18,
+  });
+
+  recentActivities = signal([
+    {
+      title: 'New files uploaded to',
+      target: '“Evaluación de Competencias Clave”',
+      time: '2 hours ago',
+      details: '3 new student submissions added.',
+    },
+    {
+      title: 'Report generated for',
+      target: '“Análisis de Desempeño Trimestral”',
+      time: 'Yesterday',
+      details: 'Detailed PDF report available for download.',
+    },
+    {
+      title: '5 new files uploaded to',
+      target: '“Rúbrica de Proyecto Final”',
+      time: '3 days ago',
+      details: 'Includes peer review feedback and final drafts.',
+    },
+    {
+      title: 'New report draft for',
+      target: '“Observación de Aula”',
+      time: '4 days ago',
+      details: 'Initial findings on classroom engagement trends.',
+    },
+  ]);
+
+  evaluations = signal([
+    {
+      name: 'Evaluación de Competencias Clave',
+      files: 12,
+      status: 'Completed',
+      dueDate: '2025-10-26',
+      color: 'bg-green-100 text-green-700',
+    },
+    {
+      name: 'Análisis de Desempeño Trimestral',
+      files: 8,
+      status: 'Pending',
+      dueDate: '2025-10-30',
+      color: 'bg-yellow-100 text-yellow-700',
+    },
+    {
+      name: 'Rúbrica de Proyecto Final',
+      files: 15,
+      status: 'Overdue',
+      dueDate: '2025-10-10',
+      color: 'bg-red-100 text-red-700',
+    },
+    {
+      name: 'Observación de Aula',
+      files: 10,
+      status: 'Completed',
+      dueDate: '2025-09-20',
+      color: 'bg-green-100 text-green-700',
+    },
+  ]);
 
   constructor(private router: Router) {}
 
-  crearEvaluacion() {
-    this.router.navigate(['/createEvaluation']);
+  goToDetail(evaluationName: string) {
+    this.router.navigate(['/evaluations', evaluationName]);
   }
 
-  editarEvaluacion(evaluacion: any) {
-    this.router.navigate(['/edit-evaluation', evaluacion.id]);
-  }
-
-  verResultados(evaluacion: any) {
-    this.router.navigate(['/resultados-evaluacion', evaluacion.id]);
-  }
-
-  eliminarEvaluacion(evaluacion: any) {
-    // Aquí va la lógica para eliminar la evaluación
-    // Por ejemplo, llamar a un servicio y actualizar la lista
-    alert(`Eliminar evaluación: ${evaluacion.nombre}`);
+  goToCreateEvaluation() {
+    this.router.navigate(['/evaluations/create']);
   }
 }
