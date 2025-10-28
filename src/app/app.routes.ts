@@ -5,24 +5,15 @@ import { DetailsComponent } from './pages/details/details.component';
 import { CreateEvaluationComponent } from './pages/create-evaluation/create-evaluation.component';
 import { Error404Component } from './pages/error-404/error-404.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ResultEvaluationComponent } from './pages/result-evaluation/result-evaluation.component';  
+import { ResultEvaluationComponent } from './pages/result-evaluation/result-evaluation.component';
 
 export const routes: Routes = [
-<<<<<<< HEAD
-    { path: '', component: LoginComponent, pathMatch: 'full' },
-    { path: "dashboard", component: DashboardComponent, title: "Panel de Control" },
-    { path: "details", component: DetailsComponent, title: "Detalles" },
-    { path: "createEvaluation", component: CreateEvaluationComponent, title: "Formulario de Evaluaciones" },
-    { path: "***", component: Error404Component },
-    { path: 'edit-evaluation/:id', component: CreateEvaluationComponent, title: 'Editar Evaluación' },
-    { path: 'resultados-evaluacion/:id', component: ResultEvaluationComponent, title: 'Resultados de la Evaluación' }
-=======
+
   { path: '', component: LoginComponent , pathMatch:'full'  },
   {path:"dashboard", component:DashboardComponent, title:"Panel de Control"},
   { path: "details", component:DetailsComponent, title:"Detalles"},
   {path: "createEvaluation" , component:CreateEvaluationComponent, title:"Formulario de Evaluaciones"},
   { path: "**",component:Error404Component}
->>>>>>> a98a256 (Avance)
 ];
 
 @NgModule({

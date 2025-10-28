@@ -2,20 +2,21 @@ import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../layout/nav-bar/nav-bar.component';
+import { CardComponentComponent } from "../../shared/card-component/card-component.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, NavBarComponent],
+  imports: [CommonModule, NavBarComponent, CardComponentComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  stats = signal({
-    totalEvaluations: 32,
-    avgStudents: 45,
-    reportsThisMonth: 18,
-  });
+
+  totalEvaluations = signal(32);
+  avgStudents = signal(45);
+  reportsThisMonth = signal(18);
+
 
   recentActivities = signal([
     {
