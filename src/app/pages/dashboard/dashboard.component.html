@@ -49,135 +49,141 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center max-w-3xl mx-auto">
           <app-card icon="ri-list-check" [value]="totalEvaluations()" label="Total de evaluaciones"></app-card>
 
-          <app-card icon="ri-user-3-line" [value]="avgStudents()" label="Promedio de estudiantes por evaluación"></app-card>
+          <app-card icon="ri-user-3-line" [value]="avgStudents()"
+            label="Promedio de estudiantes por evaluación"></app-card>
 
           <div class="sm:col-span-2 sm:w-1/2 sm:mx-auto">
-            <app-card icon="ri-file-list-3-line" [value]="reportsThisMonth()" label="Informes generados este mes"></app-card>
+            <app-card icon="ri-file-list-3-line" [value]="reportsThisMonth()"
+              label="Informes generados este mes"></app-card>
           </div>
         </div>
       </div>
 
       <!-- ACTIVIDAD RECIENTE -->
-      <div class="bg-white rounded-2xl p-6 shadow-sm">
-        <h4 class="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2">
-          <i class="ri-time-line text-[#F47A20]"></i>
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <h2 class="text-sm font-semibold text-[#0C2340] mb-4 flex items-center gap-2">
+          <i class="ri-time-line text-[#0C2340]"></i>
           Actividad reciente
-        </h4>
+        </h2>
 
-        <ul class="space-y-4 text-sm">
+        <ul class="space-y-5 text-sm">
           @for (activity of recentActivities(); track activity.target) {
-          <li>
-            <p>
-              <span class="font-medium text-gray-900">{{ activity.title }}</span>
-              <span class="text-[#F47A20] font-semibold">{{ activity.target }}</span>
-            </p>
-            <p class="text-gray-500 text-xs">{{ activity.time }}</p>
-            <p class="text-gray-400 text-xs">{{ activity.details }}</p>
+          <li class="flex flex-col border-b border-gray-100 pb-3 last:border-none">
+            <div class="flex items-start gap-3">
+              <i class="ri-file-list-3-line text-[#0C2340] text-lg mt-1"></i>
+              <div>
+                <p class="leading-tight">
+                  <span class="font-semibold text-gray-800">{{ activity.title }}</span>
+                  <a href="#" class="text-[#F47A20] font-semibold hover:underline">
+                    {{ activity.target }}
+                  </a>
+                </p>
+                <p class="text-gray-500 text-xs mt-1">{{ activity.time }}</p>
+                <p class="text-gray-400 text-xs mt-0.5">{{ activity.details }}</p>
+              </div>
+            </div>
           </li>
           }
         </ul>
       </div>
+
     </section>
 
     <!-- MIS EVALUACIONES -->
 
     <section class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-  <!-- Encabezado -->
-  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-    <h2 class="flex items-center gap-2 text-base font-semibold text-[#0C2340] mb-3">
-      <i class="ri-bar-chart-box-line text-[#0C2340] text-lg"></i>
-      <span>Mis evaluaciones</span>
-    </h2>
+      <!-- Encabezado -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+        <h2 class="flex items-center gap-2 text-base font-semibold text-[#0C2340] mb-3">
+          <i class="ri-bar-chart-box-line text-[#0C2340] text-lg"></i>
+          <span>Mis evaluaciones</span>
+        </h2>
 
-    <button (click)="goToAddCourse()"
-      class="bg-[#0C2340] text-white text-sm px-4 py-2 rounded-full hover:bg-[#07162b] transition-all duration-200 shadow-sm flex items-center gap-1">
-      <i class="ri-add-circle-line text-white text-lg"></i>
-      Agregar curso
-    </button>
-  </div>
+        <button (click)="goToAddCourse()"
+          class="bg-[#0C2340] text-white text-sm px-4 py-2 rounded-full hover:bg-[#07162b] transition-all duration-200 shadow-sm flex items-center gap-1">
+          <i class="ri-add-circle-line text-white text-lg"></i>
+          Agregar curso
+        </button>
+      </div>
 
-  <!-- Filtros -->
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 text-sm text-gray-600 gap-3">
-    <div class="flex items-center gap-2">
-      <label for="status" class="font-medium">Estado:</label>
-      <select id="status"
-        class="border border-gray-300 rounded-lg px-2 py-1 text-sm focus:ring-[#F47A20] focus:border-[#F47A20]">
-        <option>Todos</option>
-        <option>Completado</option>
-        <option>En revisión</option>
-        <option>Vencido</option>
-        <option>Borrador</option>
-      </select>
-    </div>
+      <!-- Filtros -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 text-sm text-gray-600 gap-3">
+        <div class="flex items-center gap-2">
+          <label for="status" class="font-medium">Estado:</label>
+          <select id="status"
+            class="border border-gray-300 rounded-lg px-2 py-1 text-sm focus:ring-[#F47A20] focus:border-[#F47A20]">
+            <option>Todos</option>
+            <option>Completado</option>
+            <option>En revisión</option>
+            <option>Vencido</option>
+            <option>Borrador</option>
+          </select>
+        </div>
 
-    <div class="flex items-center gap-2">
-      <label for="sort" class="font-medium">Ordenar por:</label>
-      <select id="sort"
-        class="border border-gray-300 rounded-lg px-2 py-1 text-sm focus:ring-[#F47A20] focus:border-[#F47A20]">
-        <option>Última modificación</option>
-        <option>Fecha límite</option>
-      </select>
-    </div>
+        <div class="flex items-center gap-2">
+          <label for="sort" class="font-medium">Ordenar por:</label>
+          <select id="sort"
+            class="border border-gray-300 rounded-lg px-2 py-1 text-sm focus:ring-[#F47A20] focus:border-[#F47A20]">
+            <option>Última modificación</option>
+            <option>Fecha límite</option>
+          </select>
+        </div>
 
-    <div class="flex items-center gap-2 w-full sm:w-auto">
-      <input type="text" placeholder="Buscar evaluaciones..."
-        class="border border-gray-300 rounded-lg px-3 py-1 text-sm w-full sm:w-64 focus:ring-[#F47A20] focus:border-[#F47A20]" />
-    </div>
-  </div>
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <input type="text" placeholder="Buscar evaluaciones..."
+            class="border border-gray-300 rounded-lg px-3 py-1 text-sm w-full sm:w-64 focus:ring-[#F47A20] focus:border-[#F47A20]" />
+        </div>
+      </div>
 
-  <!-- Tabla -->
-  <div class="overflow-x-auto rounded-lg border border-gray-100">
-    <table class="min-w-full text-sm text-gray-700">
-      <thead class="text-left bg-gray-50 text-gray-500 border-b">
-        <tr>
-          <th class="py-3 px-4 font-medium">Nombre de la evaluación</th>
-          <th class="py-3 px-4 font-medium">Archivos</th>
-          <th class="py-3 px-4 font-medium">Estado</th>
-          <th class="py-3 px-4 font-medium">Fecha límite</th>
-          <th class="py-3 px-4 text-center font-medium">Detalles</th>
-        </tr>
-      </thead>
+      <!-- Tabla -->
+      <div class="overflow-x-auto rounded-lg border border-gray-100">
+        <table class="min-w-full text-sm text-gray-700">
+          <thead class="text-left bg-gray-50 text-gray-500 border-b">
+            <tr>
+              <th class="py-3 px-4 font-medium">Nombre de la evaluación</th>
+              <th class="py-3 px-4 font-medium">Archivos</th>
+              <th class="py-3 px-4 font-medium">Estado</th>
+              <th class="py-3 px-4 font-medium">Fecha límite</th>
+              <th class="py-3 px-4 text-center font-medium">Detalles</th>
+            </tr>
+          </thead>
 
-      <tbody>
-        @for (eval of evaluations(); track eval.name) {
-        <tr class="border-b last:border-none hover:bg-gray-50 transition">
-          <td class="py-4 px-4 font-medium text-[#F47A20]">{{ eval.name }}</td>
-          <td class="py-4 px-4">{{ eval.files }}</td>
-          <td class="py-4 px-4">
-            <span
-              [ngClass]="{
+          <tbody>
+            @for (eval of evaluations(); track eval.name) {
+            <tr class="border-b last:border-none hover:bg-gray-50 transition">
+              <td class="py-4 px-4 font-medium text-[#F47A20]">{{ eval.name }}</td>
+              <td class="py-4 px-4">{{ eval.files }}</td>
+              <td class="py-4 px-4">
+                <span [ngClass]="{
                 'bg-green-100 text-green-700': eval.status === 'Completado',
                 'bg-yellow-100 text-yellow-700': eval.status === 'En revisión',
                 'bg-red-100 text-red-700': eval.status === 'Vencido',
                 'bg-gray-100 text-gray-600': eval.status === 'Borrador'
-              }"
-              class="px-2 py-1 text-xs rounded-full font-medium border border-transparent">
-              {{ eval.status }}
-            </span>
-          </td>
-          <td class="py-3 px-4 text-gray-500">{{ eval.dueDate }}</td>
+              }" class="px-2 py-1 text-xs rounded-full font-medium border border-transparent">
+                  {{ eval.status }}
+                </span>
+              </td>
+              <td class="py-3 px-4 text-gray-500">{{ eval.dueDate }}</td>
 
-          <!-- Nueva columna de detalles -->
-          <td class="py-3 px-4 text-center">
-            <button
-              (click)="goToDetail(eval.name)"
-              class="text-gray-500 hover:text-[#F47A20] text-lg transition"
-              title="Ver detalles">
-              ⋯
-            </button>
-          </td>
-        </tr>
-        } @empty {
-        <tr>
-          <td colspan="5" class="text-center text-gray-400 py-4">
-            No se encontraron evaluaciones.
-          </td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
-</section>
+              <!-- Nueva columna de detalles -->
+              <td class="py-3 px-4 text-center">
+                <button (click)="goToDetail(eval.name)" class="text-gray-500 hover:text-[#F47A20] text-lg transition"
+                  title="Ver detalles">
+                  ⋯
+                </button>
+              </td>
+            </tr>
+            } @empty {
+            <tr>
+              <td colspan="5" class="text-center text-gray-400 py-4">
+                No se encontraron evaluaciones.
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
 
   </main>
 </div>
