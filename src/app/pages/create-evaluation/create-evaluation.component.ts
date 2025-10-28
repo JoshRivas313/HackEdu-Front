@@ -22,17 +22,14 @@ interface Criterio {
   styleUrls: ['./create-evaluation.component.scss']
 })
 export class CreateEvaluationComponent {
+  mostrarCriterios = false;
   nombreEvaluacion: string = '';
   descripcionEvaluacion: string = '';
-  criterios: Criterio[] = [
-    {
-      titulo: '',
-      descripcion: '',
-      rubricas: [
-        { titulo: '', puntaje: 0, descripcion: '' }
-      ]
-    }
-  ];
+  cursoEvaluacion: string = '';
+  periodoEvaluacion: string = '';
+  estudiantesPorGrupo: number = 0;
+
+  criterios: Criterio[] = [];
 
   agregarCriterio() {
     this.criterios.push({

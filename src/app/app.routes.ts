@@ -13,7 +13,9 @@ export const routes: Routes = [
   {path:"dashboard", component:DashboardComponent, title:"Panel de Control"},
   { path: "details", component:DetailsComponent, title:"Detalles"},
   {path: "createEvaluation" , component:CreateEvaluationComponent, title:"Formulario de Evaluaciones"},
-  { path: "**",component:Error404Component}
+  { path: "**",component:Error404Component},
+  { path: "resultEvaluation" , component:ResultEvaluationComponent, title:"Resultados de Evaluaciones"}
+
 ];
 
 @NgModule({
