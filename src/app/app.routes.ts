@@ -6,16 +6,18 @@ import { CreateEvaluationComponent } from './pages/create-evaluation/create-eval
 import { Error404Component } from './pages/error-404/error-404.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ResultEvaluationComponent } from './pages/result-evaluation/result-evaluation.component';
+import { DetallesComponent } from './pages/detalles/detalles.component';
 
 export const routes: Routes = [
 
   { path: '', component: LoginComponent , pathMatch:'full'  },
   {path:"dashboard", component:DashboardComponent, title:"Panel de Control"},
   { path: "details", component:DetailsComponent, title:"Detalles"},
-  {path: "createEvaluation" , component:CreateEvaluationComponent, title:"Formulario de Evaluaciones"},
-  { path: "**",component:Error404Component},
-  { path: "resultEvaluation" , component:ResultEvaluationComponent, title:"Resultados de Evaluaciones"}
 
+  { path: "resultEvaluation" , component:ResultEvaluationComponent, title:"Resultados de Evaluaciones"},
+  { path: "detalles" , component:DetallesComponent, title:"Detalles del Grupo"},
+  {path: "createEvaluation" , component:CreateEvaluationComponent, title:"Formulario de Evaluaciones"},
+  { path: "**",component:Error404Component}
 ];
 
 @NgModule({
