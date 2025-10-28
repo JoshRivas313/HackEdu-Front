@@ -2,7 +2,7 @@
   <div class="bg-white p-8 rounded-2xl shadow-md max-w-3xl mx-auto space-y-8">
     <div class="items-center ">
       <h1 class="text-2xl font-semibold text-[#0C2340]">
-        Crear Nueva Evaluación
+        Editar Evaluación
       </h1>
     </div>
     <div>
@@ -12,7 +12,6 @@
       <input
         type="text"
         [(ngModel)]="nombreEvaluacion"
-        placeholder="Ej. Evaluación de Ensayo Parcial"
         class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-[#4EC3E0] focus:outline-none"
       />
     </div>
@@ -23,7 +22,6 @@
       <textarea
         rows="3"
         [(ngModel)]="descripcionEvaluacion"
-        placeholder="Describe brevemente el propósito o los criterios generales de esta evaluación..."
         class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-[#4EC3E0] focus:outline-none"
       ></textarea>
     </div>
@@ -39,7 +37,7 @@
           <input
             type="text"
             [(ngModel)]="criterio.titulo"
-            placeholder="Título del criterio (ej. Claridad del argumento)"
+            placeholder="Título del criterio"
             class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-[#4EC3E0]"
           />
           <button
@@ -64,13 +62,13 @@
               <input
                 type="text"
                 [(ngModel)]="rubrica.titulo"
-                placeholder="Ej. Supera expectativas"
+                placeholder="Título del ítem"
                 class="flex-1 border border-gray-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-[#4EC3E0]"
               />
               <input
                 type="number"
                 [(ngModel)]="rubrica.puntaje"
-                placeholder="10"
+                placeholder="Puntaje"
                 class="w-20 border border-gray-300 rounded-lg p-2 text-sm text-center focus:ring-2 focus:ring-[#4EC3E0]"
               />
               <span class="text-sm text-gray-500">pts</span>
@@ -85,7 +83,7 @@
             </div>
             <textarea
               [(ngModel)]="rubrica.descripcion"
-              placeholder="Ej. El estudiante presenta un análisis excepcionalmente claro y bien estructurado."
+              placeholder="Descripción del ítem"
               rows="2"
               class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-[#4EC3E0]"
             ></textarea>
@@ -122,7 +120,7 @@
       <button
         class="px-6 py-2 bg-[#4EC3E0] text-white rounded-lg text-sm font-medium hover:bg-[#3AB1CD] transition"
       >
-        Guardar evaluación
+        Guardar cambios
       </button>
     </div>
   </div>

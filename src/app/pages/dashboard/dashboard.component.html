@@ -1,1 +1,19 @@
-<p>dashboard works!</p>
+<div class="dashboard-profesor-container">
+  <h2>Panel del Profesor</h2>
+  
+  <div class="dashboard-actions">
+    <button (click)="crearEvaluacion()">Crear Nueva Evaluación</button>
+  </div>
+
+  <h3>Evaluaciones Creadas</h3>
+  <ul class="evaluaciones-list">
+    <li *ngFor="let evaluacion of evaluaciones">
+      <span>{{ evaluacion.nombre }}</span>
+      <div class="evaluacion-actions">
+        <button (click)="editarEvaluacion(evaluacion)">Editar</button>
+        <button (click)="verResultados(evaluacion)">Ver Resultados</button>
+        <button (click)="eliminarEvaluacion(evaluacion)">Eliminar</button>
+      </div>
+    </li>
+  </ul>
+</div>

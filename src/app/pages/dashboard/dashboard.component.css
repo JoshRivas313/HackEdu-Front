@@ -1,0 +1,86 @@
+.dashboard-profesor-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-actions button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #0072ff;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dashboard-actions button:hover {
+  background: #005bb5;
+}
+
+.evaluaciones-list {
+  list-style: none;
+  padding: 0;
+}
+
+.evaluaciones-list li {
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  background: #f5f7fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.evaluacion-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.evaluacion-actions button {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.evaluacion-actions button:nth-child(1) { /* Editar */
+  background: #4EC3E0;
+  color: #fff;
+}
+
+.evaluacion-actions button:nth-child(1):hover {
+  background: #3AB1CD;
+}
+
+.evaluacion-actions button:nth-child(2) { /* Ver Resultados */
+  background: #0072ff;
+  color: #fff;
+}
+
+.evaluacion-actions button:nth-child(2):hover {
+  background: #005bb5;
+}
+
+.evaluacion-actions button:nth-child(3) { /* Eliminar */
+  background: #e53935;
+  color: #fff;
+}
+
+.evaluacion-actions button:nth-child(3):hover {
+  background: #b71c1c;
+}

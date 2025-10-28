@@ -29,7 +29,7 @@ export class LoginComponent {
       return;
     }
 
-    if (this.email === 'hurtadorivasj123@gmail.com' && this.password === '123') {
+    if (this.email === '123' && this.password === '123') {
 
       setTimeout(() => {
         this.router.navigate(['/dashboard']);

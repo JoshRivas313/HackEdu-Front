@@ -1,0 +1,46 @@
+.result-evaluation-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.graficos-section {
+  margin-bottom: 2rem;
+}
+
+.grafico-placeholder {
+  background: #f5f7fa;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.alumnos-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.alumnos-list li {
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  background: #e3f2fd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.alumnos-list li:hover {
+  background: #bbdefb;
+}
+
+.retroalimentacion-section {
+  background: #f5f7fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+}

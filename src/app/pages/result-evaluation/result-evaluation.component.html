@@ -1,0 +1,27 @@
+<div class="result-evaluation-container">
+  <h2>Resultados Generales de la Evaluación</h2>
+
+  <!-- Gráficos de resultados generales -->
+  <div class="graficos-section">
+    <!-- Aquí irían los gráficos, por ejemplo usando ngx-charts, chart.js, etc. -->
+    <div class="grafico-placeholder">
+      <p>Gráfico de resultados por rúbrica</p>
+    </div>
+  </div>
+
+  <h3>Subidas de los alumnos</h3>
+  <ul class="alumnos-list">
+    <li *ngFor="let alumno of alumnos" (click)="seleccionarAlumno(alumno)">
+      {{ alumno.nombre }}
+    </li>
+  </ul>
+
+  <div *ngIf="alumnoSeleccionado" class="retroalimentacion-section">
+    <h4>Retroalimentación de {{ alumnoSeleccionado.nombre }}</h4>
+    <ul>
+      <li *ngFor="let punto of alumnoSeleccionado.retroalimentacion">
+        <strong>{{ punto.criterio }}:</strong> {{ punto.comentario }}
+      </li>
+    </ul>
+  </div>
+</div>
