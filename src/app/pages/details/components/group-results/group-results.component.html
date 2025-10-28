@@ -1,0 +1,70 @@
+<section class="space-y-6">
+  <h3 class="font-semibold text-gray-800 mb-2">Resultados individuales por grupo</h3>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    @for (group of groups(); track group.name) {
+      <div class="bg-white border rounded-xl p-4 shadow-sm flex flex-col">
+        <!-- Encabezado del grupo -->
+        <div class="flex items-center justify-between mb-2">
+          <h4 class="font-semibold text-[#0C2340]">{{ group.name }}</h4>
+          <span
+            [ngClass]="{
+              'bg-green-100 text-green-700': group.status === 'Cumple',
+              'bg-red-100 text-red-600': group.status === 'No cumple'
+            }"
+            class="text-xs font-medium px-2 py-1 rounded-full">
+            {{ group.status }}
+          </span>
+        </div>
+
+        <!-- Subtítulo -->
+        <p class="text-xs text-gray-500 mb-3">
+          Rúbricas: {{ group.passedRubrics }}/{{ group.totalRubrics }}
+        </p>
+
+        <!-- Gráfico circular -->
+        <div class="relative w-24 h-24 mx-auto mb-3">
+          <svg viewBox="0 0 36 36" class="w-full h-full">
+            <path
+              class="text-gray-200"
+              stroke="currentColor"
+              stroke-width="3"
+              fill="none"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path
+              [attr.stroke-dasharray]="(group.passedRubrics / group.totalRubrics) * 100 + ', 100'"
+              [ngClass]="{
+                'text-green-500': group.status === 'Cumple',
+                'text-red-500': group.status === 'No cumple'
+              }"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              fill="none"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="text-sm text-gray-600 font-medium">
+              {{ (group.passedRubrics / group.totalRubrics * 100) | number: '1.0-0' }}%
+            </span>
+          </div>
+        </div>
+
+        <!-- Recomendaciones -->
+        <div class="mt-2">
+          <p class="text-sm font-semibold text-gray-700 mb-1">Recomendaciones:</p>
+          <ul class="list-disc list-inside text-xs text-gray-600 space-y-1">
+            @for (rec of group.recommendations; track rec) {
+              <li>{{ rec }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+  </div>
+</section>

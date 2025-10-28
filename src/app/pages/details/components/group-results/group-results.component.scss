@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+svg {
+  transform: rotate(-90deg);
+}
+
+path {
+  transition: stroke-dasharray 0.6s ease;
+}

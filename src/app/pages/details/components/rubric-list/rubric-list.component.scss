@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+textarea {
+  transition: all 0.2s ease;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(12, 35, 64, 0.15);
+}
+
+button {
+  transition: color 0.2s ease;
+}

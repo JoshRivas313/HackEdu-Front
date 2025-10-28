@@ -1,0 +1,47 @@
+<section class="space-y-4">
+  <h3 class="font-semibold text-gray-800 mb-2">1. Sube tu archivo de evidencias (PDF)</h3>
+  <p class="text-sm text-gray-500 mb-4">
+    Este PDF se utilizará para analizar todas las rúbricas que crees.
+  </p>
+
+  <!-- Zona de arrastre -->
+  <div
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+    class="border-2 border-dashed rounded-xl py-10 px-4 text-center transition cursor-pointer"
+    [ngClass]="{
+      'border-[#0C2340] bg-blue-50': isDragging(),
+      'border-gray-300 hover:bg-gray-50': !isDragging()
+    }"
+  >
+    <input
+      type="file"
+      id="fileInput"
+      accept="application/pdf"
+      hidden
+      (change)="onFileSelect($event)"
+    />
+    @if (!uploadedFile()) {
+      <label for="fileInput" class="cursor-pointer">
+        <i class="ri-upload-cloud-2-line text-3xl text-gray-400 mb-2"></i>
+        <p class="text-sm text-gray-600">
+          Arrastra y suelta el archivo aquí o
+          <span class="text-[#0C2340] font-semibold hover:underline">haz clic para subir</span>
+        </p>
+        <p class="text-xs text-gray-400 mt-1">PDF (máx. 20MB)</p>
+      </label>
+    } @else {
+      <div class="flex flex-col items-center space-y-2">
+        <i class="ri-file-pdf-2-line text-3xl text-[#F47A20]"></i>
+        <p class="text-sm text-gray-700">{{ uploadedFile()?.name }}</p>
+        <button
+          (click)="clearFile()"
+          class="text-xs text-red-600 hover:underline flex items-center gap-1"
+        >
+          <i class="ri-close-line"></i> Quitar archivo
+        </button>
+      </div>
+    }
+  </div>
+</section>

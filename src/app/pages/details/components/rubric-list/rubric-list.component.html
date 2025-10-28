@@ -1,0 +1,44 @@
+<section>
+  <h3 class="font-semibold text-gray-800 mb-2">2. Define tus rúbricas de evaluación</h3>
+  <p class="text-sm text-gray-500 mb-4">
+    Añade las condiciones que deseas evaluar. Puedes crear hasta {{ maxRubrics }} rúbricas.
+  </p>
+
+  <div class="space-y-3">
+    @for (rubric of rubrics(); track rubric; let i = $index) {
+      <div class="flex items-start gap-2">
+        <textarea
+          rows="2"
+          [value]="rubric"
+          (input)="updateRubric($any($event.target).value, i)"
+          placeholder="Ej: El documento presenta una introducción clara..."
+          class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-[#0C2340] focus:border-[#0C2340] resize-none"></textarea>
+
+        <button
+          (click)="removeRubric(i)"
+          class="text-gray-400 hover:text-red-500 text-lg mt-1"
+          title="Eliminar rúbrica">
+          <i class="ri-delete-bin-6-line"></i>
+        </button>
+      </div>
+    }
+
+    @if (rubrics().length === 0) {
+      <p class="text-gray-400 text-sm italic text-center py-3">No hay rúbricas definidas.</p>
+    }
+  </div>
+
+  <div class="flex justify-between items-center mt-4">
+    <button
+      (click)="addRubric()"
+      class="text-sm text-[#0C2340] hover:underline flex items-center gap-1">
+      <i class="ri-add-line"></i> Agregar rúbrica
+    </button>
+
+    <button
+      (click)="saveRubrics()"
+      class="bg-[#0C2340] text-white text-sm px-4 py-2 rounded-lg hover:bg-[#07162b] transition">
+      Guardar rúbrica
+    </button>
+  </div>
+</section>
