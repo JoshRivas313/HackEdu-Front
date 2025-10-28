@@ -1,44 +1,84 @@
-<div class="login-container">
-  <div class="login-card">
-    <div class="login-header">
-      <h1>AlToque</h1>
-      <p>Ingresa a tu cuenta</p>
-    </div>
-    <form class="login-form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">Usuario</label>
-        <input 
-          type="text" 
-          id="email" 
-          [(ngModel)]="email" 
-          name="email" 
-          placeholder="usuario"
-          required
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+  <!-- Card principal -->
+  <div class="bg-white w-full max-w-sm rounded-2xl shadow-sm p-8 mt-5">
+    <!-- Logo -->
+    <img
+      src="assets/LogoRedondo.png"
+      alt="Logo AlToque"
+      class="w-40 h-40 mx-auto mb-4"
+    />
+
+    <!-- Encabezado -->
+    <h1 class="text-xl font-bold text-center text-gray-900 mb-2">
+      Bienvenido a <span class="text-[#F47A20]">AlToque</span> 👋
+    </h1>
+    <p class="text-center text-gray-500 mb-6 text-sm">
+      Accede a tu cuenta para continuar con tus gestiones.
+    </p>
+
+    <!-- Formulario -->
+    <form (ngSubmit)="Login()" class="space-y-4">
+      <!-- Email -->
+      <div>
+        <label
+          for="email"
+          class="block text-sm font-medium text-gray-600 mb-1"
+          >Correo electrónico</label
         >
+        <div class="relative">
+          <span
+            class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"
+          >
+            <i class="ri-mail-line"></i>
+          </span>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            [(ngModel)]="email"
+            placeholder="tu.email@ejemplo.com"
+            class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F47A20] focus:border-transparent text-sm"
+          />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input 
-          type="password" 
-          id="password" 
-          [(ngModel)]="password" 
-          name="password" 
-          placeholder="••••••••"
-          required
+
+      <!-- Contraseña -->
+      <div>
+        <label
+          for="password"
+          class="block text-sm font-medium text-gray-600 mb-1"
+          >Contraseña</label
         >
+        <div class="relative">
+          <span
+            class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"
+          >
+            <i class="ri-lock-line"></i>
+          </span>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            [(ngModel)]="password"
+            placeholder="Ingresa tu contraseña"
+            class="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F47A20] focus:border-transparent text-sm"
+          />
+          <span
+            class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer"
+          >
+          </span>
+        </div>
       </div>
-      <div class="form-options">
-        <label class="checkbox-container">
-          <input type="checkbox" [(ngModel)]="remember" name="remember">
-          <span>Recordarme</span>
-        </label>
-        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-      </div>
-      <button type="submit" class="btn-login">Iniciar Sesión</button>
-      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-      <div class="signup-link">
-        <p>¿No tienes cuenta? <a href="#">Regístrate</a></p>
-      </div>
+
+      <!-- Botón principal -->
+      <button
+        type="submit"
+        class="w-full bg-[#F47A20] text-white font-semibold py-2 rounded-lg hover:bg-[#e96c10] transition-colors"
+      >
+        Ingresar
+      </button>
     </form>
   </div>
+
+
 </div>
