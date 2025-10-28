@@ -7,10 +7,10 @@ import { CreateEvaluationComponent } from './pages/create-evaluation/create-eval
 import { Error404Component } from './pages/error-404/error-404.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'dashboard_profesor', component: DashboardProfesorComponent },
-  { path: "details", component:DetailsComponent},
-  {path: "createEvaluation" , component:CreateEvaluationComponent},
+  { path: '', component: LoginComponent , pathMatch:'full'  },
+  { path: 'dashboard_profesor', component: DashboardProfesorComponent , title:"Panel de Profesor" },
+  { path: "details", component:DetailsComponent, title:"Detalles"},
+  {path: "createEvaluation" , component:CreateEvaluationComponent, title:"Formulario de Evaluaciones"},
   { path: "***",component:Error404Component}
 ];
 
