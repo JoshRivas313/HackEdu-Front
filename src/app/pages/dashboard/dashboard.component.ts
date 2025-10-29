@@ -12,16 +12,17 @@ import { CardComponentComponent } from "../../shared/card-component/card-compone
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-goToDetail(arg0: string) {
-this.router.navigate(['details']);
-}
+  goToDetail(arg0: string) {
+    this.router.navigate(['details']);
+  }
+
 
   totalEvaluations = signal(32);
   avgStudents = signal(45);
   reportsThisMonth = signal(18);
 
 
-   constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   goToAddCourse() {
     this.router.navigate(['createEvaluation']); // o la ruta que desees
@@ -56,35 +57,35 @@ this.router.navigate(['details']);
 
 
   evaluations = signal([
-  {
-    name: 'Evaluación de Competencias Clave',
-    files: 12,
-    status: 'Completado',
-    dueDate: '2025-10-26',
-    color: 'bg-green-100 text-green-700',
-  },
-  {
-    name: 'Análisis de Desempeño Trimestral',
-    files: 8,
-    status: 'En revisión',
-    dueDate: '2025-10-30',
-    color: 'bg-yellow-100 text-yellow-700',
-  },
-  {
-    name: 'Rúbrica de Proyecto Final',
-    files: 15,
-    status: 'Vencido',
-    dueDate: '2025-10-10',
-    color: 'bg-red-100 text-red-700',
-  },
-  {
-    name: 'Observación de Aula',
-    files: 10,
-    status: 'Completado',
-    dueDate: '2025-09-20',
-    color: 'bg-green-100 text-green-700',
-  },
-]);
+    {
+      name: 'Evaluación de Competencias Clave',
+      files: 12,
+      status: 'Completado',
+      dueDate: '2025-10-26',
+      color: 'bg-green-100 text-green-700',
+    },
+    {
+      name: 'Análisis de Desempeño Trimestral',
+      files: 8,
+      status: 'En revisión',
+      dueDate: '2025-10-30',
+      color: 'bg-yellow-100 text-yellow-700',
+    },
+    {
+      name: 'Rúbrica de Proyecto Final',
+      files: 15,
+      status: 'Vencido',
+      dueDate: '2025-10-10',
+      color: 'bg-red-100 text-red-700',
+    },
+    {
+      name: 'Observación de Aula',
+      files: 10,
+      status: 'Completado',
+      dueDate: '2025-09-20',
+      color: 'bg-green-100 text-green-700',
+    },
+  ]);
 
 
 

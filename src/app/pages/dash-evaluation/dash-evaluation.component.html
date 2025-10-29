@@ -1,0 +1,33 @@
+<div class="min-h-screen bg-gray-50 p-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-[#0C2340]">Evaluaciones Activas</h1>
+      <button class="px-5 py-2 bg-[#F47A20] text-white rounded-lg font-medium shadow hover:bg-[#ff9f5c] transition"
+              (click)="crearRubrica()">
+        Crear Rúbrica
+      </button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-xl shadow p-6 flex flex-col justify-between" *ngFor="let evaluacion of evaluaciones">
+        <h2 class="text-xl font-semibold text-[#0C2340] mb-2">{{ evaluacion.nombre }}</h2>
+        <p class="text-gray-500 mb-4">{{ evaluacion.descripcion }}</p>
+        <div class="flex justify-between items-center mt-auto gap-2">
+          <span class="text-sm text-gray-400">Curso: {{ evaluacion.curso }}</span>
+          <span class="text-sm text-green-600 font-semibold">Grupos que enviaron: {{ evaluacion.gruposEnviados }}</span>
+          <button class="px-5 py-2 bg-[#4EC3E0] text-white rounded-lg font-medium shadow hover:bg-[#3AB1CD] transition"
+                  (click)="irADetalles(evaluacion)">
+            Evaluar todo
+          </button>
+          <button class="px-5 py-2 bg-[#0C2340] text-white rounded-lg font-medium shadow hover:bg-[#1a3a66] transition"
+                  (click)="editarRubrica(evaluacion)">
+            Editar
+          </button>
+          <div *ngIf="isLoading" class="fixed inset-0 bg-white bg-opacity-80 flex flex-col items-center justify-center z-50">
+  <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-[#0C2340] mb-4"></div>
+  <span class="text-xl font-semibold text-[#0C2340]">Cargando evaluación...</span>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,254 @@
+<div class="min-h-screen bg-gray-50 p-8">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+            <img src="assets/LogoCuadrado.png" alt="Logo" class="w-12 h-12 rounded" />
+            <h1 class="text-2xl font-bold text-[#0C2340]">{{nombreEvaluacion}}</h1>
+        </div>
+        <button class="px-5 py-2 rounded-lg bg-gray-200 text-[#0C2340] font-medium hover:bg-gray-300 transition">&larr;
+            Volver</button>
+    </div>
+
+    <!-- Archivos recibidos -->
+    <div class="bg-white rounded-lg shadow p-4 mb-6 flex items-center gap-3 w-fit">
+        <span class="material-icons text-2xl text-[#0C2340]">folder</span>
+        <span class="font-semibold text-gray-700">Archivos recibidos: {{archivosRecibidos}}</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="bg-white rounded-lg shadow flex items-center gap-6 px-6 py-3 mb-6">
+        <span class="font-medium text-gray-400 cursor-pointer">Configuración</span>
+        <span class="font-medium text-[#0C2340] border-b-2 border-[#0C2340] pb-1 cursor-pointer">Resultados</span>
+    </div>
+
+    <!-- Panel de resultados -->
+    <div id="panel-resultados" class="mb-8">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold text-[#0C2340]">Panel de resultados</h2>
+            <button
+                class="px-5 py-2 bg-[#0C2340] text-white rounded-lg font-medium shadow hover:bg-[#1a3a66] transition"
+                (click)="descargarInforme()">
+                Descargar Informe Global
+            </button>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+            <div class="bg-white rounded-lg p-4 flex flex-col items-center">
+                <span class="text-2xl font-bold text-[#0C2340]">5</span>
+                <span class="text-gray-500 text-sm">Total grupos evaluados</span>
+            </div>
+            <div class="bg-white rounded-lg p-4 flex flex-col items-center">
+                <span class="text-2xl font-bold text-green-500">66.7%</span>
+                <span class="text-gray-500 text-sm">% de grupos que cumplen</span>
+            </div>
+            <div class="bg-white rounded-lg p-4 flex flex-col items-center">
+                <span class="text-2xl font-bold text-red-500">33.3%</span>
+                <span class="text-gray-500 text-sm">% de grupos que no cumplen</span>
+            </div>
+            <div class="bg-white rounded-lg p-4 flex flex-col items-center">
+                <span class="text-gray-500 text-sm">Rúbrica con peor desempeño</span>
+                <span class="text-2xl font-bold text-[#0C2340]">Rúbrica 3</span>
+            </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Desempeño por Rúbrica (Global) -->
+            <div class="bg-white rounded-lg p-6">
+                <h3 class="font-semibold text-[#0C2340] mb-4">Desempeño por Rúbrica (Global)</h3>
+                <!-- Simulación de gráfico de barras -->
+                <div class="flex items-end gap-4 h-40">
+                    <!-- Rúbrica 1 -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col-reverse">
+                            <div class="bg-green-400 w-8" style="height: 80px;"></div>
+                            <div class="bg-red-400 w-8" style="height: 40px;"></div>
+                        </div>
+                        <span class="text-xs mt-2">Rúbrica 1</span>
+                        <div class="flex flex-col text-xs text-center mt-1">
+                            <span class="text-green-600">4</span>
+                            <span class="text-red-600">2</span>
+                        </div>
+                    </div>
+                    <!-- Rúbrica 2 -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col-reverse">
+                            <div class="bg-green-400 w-8" style="height: 60px;"></div>
+                            <div class="bg-red-400 w-8" style="height: 60px;"></div>
+                        </div>
+                        <span class="text-xs mt-2">Rúbrica 2</span>
+                        <div class="flex flex-col text-xs text-center mt-1">
+                            <span class="text-green-600">3</span>
+                            <span class="text-red-600">3</span>
+                        </div>
+                    </div>
+                    <!-- Rúbrica 3 -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col-reverse">
+                            <div class="bg-green-400 w-8" style="height: 40px;"></div>
+                            <div class="bg-red-400 w-8" style="height: 80px;"></div>
+                        </div>
+                        <span class="text-xs mt-2">Rúbrica 3</span>
+                        <div class="flex flex-col text-xs text-center mt-1">
+                            <span class="text-green-600">2</span>
+                            <span class="text-red-600">4</span>
+                        </div>
+                    </div>
+                    <!-- Rúbrica 4 -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col-reverse">
+                            <div class="bg-green-400 w-8" style="height: 100px;"></div>
+                            <div class="bg-red-400 w-8" style="height: 20px;"></div>
+                        </div>
+                        <span class="text-xs mt-2">Rúbrica 4</span>
+                        <div class="flex flex-col text-xs text-center mt-1">
+                            <span class="text-green-600">5</span>
+                            <span class="text-red-600">1</span>
+                        </div>
+                    </div>
+                    <!-- Rúbrica 5 -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col-reverse">
+                            <div class="bg-green-400 w-8" style="height: 80px;"></div>
+                            <div class="bg-red-400 w-8" style="height: 40px;"></div>
+                        </div>
+                        <span class="text-xs mt-2">Rúbrica 5</span>
+                        <div class="flex flex-col text-xs text-center mt-1">
+                            <span class="text-green-600">4</span>
+                            <span class="text-red-600">2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-8 mt-4 text-sm">
+                    <div class="flex items-center gap-2">
+                        <span class="w-4 h-4 bg-green-400 rounded"></span>
+                        <span>Cumplen</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-4 h-4 bg-red-400 rounded"></span>
+                        <span>No Cumplen</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Cumplimiento Global -->
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center">
+                <h3 class="font-semibold text-[#0C2340] mb-4">Cumplimiento Global</h3>
+                <!-- Simulación de gráfico circular -->
+                <div class="relative w-40 h-40 flex items-center justify-center">
+                    <svg width="160" height="160">
+                        <!-- Fondo gris -->
+                        <circle cx="80" cy="80" r="70" stroke="#E5E7EB" stroke-width="18" fill="none" />
+                        <!-- Rojo: 34% (debajo) -->
+                        <circle cx="80" cy="80" r="70" stroke="#EF4444" stroke-width="18" fill="none"
+                            stroke-dasharray="440" stroke-dashoffset="0" />
+                        <!-- Azul: 66% (encima) -->
+                        <circle cx="80" cy="80" r="70" stroke="#4EC3E0" stroke-width="18" fill="none"
+                            stroke-dasharray="440" stroke-dashoffset="149" />
+                    </svg>
+                    <span
+                        class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-[#0C2340]">Total<br>100%</span>
+                </div>
+                <div class="flex justify-center gap-8 mt-4 text-sm">
+                    <div class="flex items-center gap-2">
+                        <span class="w-4 h-4 bg-[#4EC3E0] rounded"></span>
+                        <span>Cumplen</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-4 h-4 bg-[#EF4444] rounded"></span>
+                        <span>No Cumplen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resultados Individuales por Grupo -->
+    <div>
+        <h2 class="text-lg font-bold text-[#0C2340] mb-4">Resultados Individuales por Grupo</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Grupo 1 -->
+            <div class="bg-white rounded-lg p-4 flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                    <span class="text-[#0C2340] font-bold">Grupo 1</span>
+                    <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs font-semibold">Cumple</span>
+                </div>
+                <span class="text-gray-500 text-sm">Rúbricas: 5/5</span>
+                <div class="flex items-center gap-2 mt-2">
+                    <svg width="40" height="40">
+                        <circle cx="20" cy="20" r="18" stroke="#E5E7EB" stroke-width="4" fill="none" />
+                        <circle cx="20" cy="20" r="18" stroke="#4EC3E0" stroke-width="4" fill="none"
+                            stroke-dasharray="113" stroke-dashoffset="0" />
+                    </svg>
+                    <span class="text-green-600 font-semibold text-sm">100%</span>
+                </div>
+                <span class="font-semibold text-gray-700 mt-2">Recomendación:</span>
+                <ul class="text-gray-600 text-sm list-disc pl-5">
+                    <li>Excelente trabajo en todas las rúbricas.</li>
+                    <li>Compartir como ejemplo de proyecto.</li>
+                </ul>
+            </div>
+            <!-- Grupo 2 -->
+            <div class="bg-white rounded-lg p-4 flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                    <span class="text-[#0C2340] font-bold">Grupo 2</span>
+                    <span class="bg-red-100 text-red-600 px-2 py-1 rounded-full text-xs font-semibold">No cumple</span>
+                </div>
+                <span class="text-gray-500 text-sm">Rúbricas: 2/5</span>
+                <div class="flex items-center gap-2 mt-2">
+                    <svg width="40" height="40">
+                        <circle cx="20" cy="20" r="18" stroke="#E5E7EB" stroke-width="4" fill="none" />
+                        <circle cx="20" cy="20" r="18" stroke="#EF4444" stroke-width="4" fill="none"
+                            stroke-dasharray="113" stroke-dashoffset="68" />
+                    </svg>
+                    <span class="text-red-600 font-semibold text-sm">40%</span>
+                </div>
+                <span class="font-semibold text-gray-700 mt-2">Recomendación:</span>
+                <ul class="text-gray-600 text-sm list-disc pl-5">
+                    <li>Revisar criterios de Rúbrica 3.</li>
+                    <li>Añadir más evidencia y profundidad.</li>
+                </ul>
+            </div>
+            <!-- Grupo 3 -->
+            <div class="bg-white rounded-lg p-4 flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                    <span class="text-[#0C2340] font-bold">Grupo 3</span>
+                    <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs font-semibold">Cumple</span>
+                </div>
+                <span class="text-gray-500 text-sm">Rúbricas: 4/5</span>
+                <div class="flex items-center gap-2 mt-2">
+                    <svg width="40" height="40">
+                        <circle cx="20" cy="20" r="18" stroke="#E5E7EB" stroke-width="4" fill="none" />
+                        <circle cx="20" cy="20" r="18" stroke="#4EC3E0" stroke-width="4" fill="none"
+                            stroke-dasharray="113" stroke-dashoffset="23" />
+                    </svg>
+                    <span class="text-green-600 font-semibold text-sm">80%</span>
+                </div>
+                <span class="font-semibold text-gray-700 mt-2">Recomendación:</span>
+                <ul class="text-gray-600 text-sm list-disc pl-5">
+                    <li>Muy buen progreso general.</li>
+                    <li>Pequeñas mejoras en Rúbrica 5.</li>
+                </ul>
+            </div>
+            <!-- Grupo 4 -->
+            <div class="bg-white rounded-lg p-4 flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                    <span class="text-[#0C2340] font-bold">Grupo 4</span>
+                    <span class="bg-red-100 text-red-600 px-2 py-1 rounded-full text-xs font-semibold">No cumple</span>
+                </div>
+                <span class="text-gray-500 text-sm">Rúbricas: 3/5</span>
+                <div class="flex items-center gap-2 mt-2">
+                    <svg width="40" height="40">
+                        <circle cx="20" cy="20" r="18" stroke="#E5E7EB" stroke-width="4" fill="none" />
+                        <circle cx="20" cy="20" r="18" stroke="#EF4444" stroke-width="4" fill="none"
+                            stroke-dasharray="113" stroke-dashoffset="45" />
+                    </svg>
+                    <span class="text-red-600 font-semibold text-sm">60%</span>
+                </div>
+                <span class="font-semibold text-gray-700 mt-2">Recomendación:</span>
+                <ul class="text-gray-600 text-sm list-disc pl-5">
+                    <li>Mejorar en Rúbricas 1 y 3.</li>
+                    <li>Enfocarse en la estructura del proyecto.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

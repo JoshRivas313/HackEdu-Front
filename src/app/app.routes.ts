@@ -7,7 +7,9 @@ import { Error404Component } from './pages/error-404/error-404.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ResultEvaluationComponent } from './pages/result-evaluation/result-evaluation.component';
 import { DetallesComponent } from './pages/detalles/detalles.component';
-
+import { DashEvaluationComponent } from './pages/dash-evaluation/dash-evaluation.component';
+import { EditEvaluationComponent } from './pages/edit-evaluation/edit-evaluation.component';
+import { AnalisisComponent } from './pages/analisis/analisis.component';
 export const routes: Routes = [
 
   { path: '', component: LoginComponent , pathMatch:'full'  },
@@ -17,7 +19,11 @@ export const routes: Routes = [
   { path: "resultEvaluation" , component:ResultEvaluationComponent, title:"Resultados de Evaluaciones"},
   { path: "detalles" , component:DetallesComponent, title:"Detalles del Grupo"},
   {path: "createEvaluation" , component:CreateEvaluationComponent, title:"Formulario de Evaluaciones"},
+  { path: "dashEvaluation" , component:DashEvaluationComponent, title:"Panel de Evaluaciones"},
+  { path : "editEvaluation" , component:EditEvaluationComponent, title:"Editar Evaluación"},
+  { path : "analisis" , component:AnalisisComponent, title:"Análisis de Evaluaciones"},
   { path: "**",component:Error404Component}
+
 ];
 
 @NgModule({
